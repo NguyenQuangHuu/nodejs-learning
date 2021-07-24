@@ -3,10 +3,10 @@ const sitesController = require('../app/controllers/SitesController');
 
 const router = express.Router();
 
+//Router
 
-
-router.use('/search', sitesController.search);
-router.use('/', sitesController.home);
+router.get('/search', sitesController.search);
+router.get('/', sitesController.home);
 
 
 

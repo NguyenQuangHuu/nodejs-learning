@@ -8,6 +8,12 @@ class SitesController{
     //[GET] home
     home(req, res, next){
 
+        Course.find({})
+            .then(courses => {
+                res.render('home',
+                {courses : multipleMongooseToObject(courses)});
+            })
+            .catch(error => next(error));
 
         // Course.find({},function(err,courses){
         //     if(!err) res.json(courses)
@@ -16,12 +22,6 @@ class SitesController{
         //     }
         // })
 
-        Course.find({})
-            .then(courses => {
-                res.render('home',
-                {courses : multipleMongooseToObject(courses)});
-            })
-            .catch(error => next(error));
         // res.render('home');
     }
 
